@@ -38,7 +38,10 @@ function App() {
             setTask("");  
         }}
       />
-      <button onClick={addTask}>Add</button>
+      <div className="controls">
+        <button onClick={addTask}>Add</button>
+        <button onClick={() => setAllTasks([])}>Clear All</button>
+      </div>
       <hr />
       {console.log(allTasks)}
       <Task tasks={allTasks} deleteTask={deleteTask} />
