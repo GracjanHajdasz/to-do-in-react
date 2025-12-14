@@ -1,34 +1,48 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Task } from './components/Task'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [allTasks, setAllTasks] = useState([]);
+  const [task, setTask] = useState("");
+
+  function addTask() {
+    const newTasks = [
+      ...allTasks,
+      { task: task, id: crypto.randomUUID() }
+    ]
+    setAllTasks(newTasks);
+    setTask("");
+  }
+  
+  function saveTask(event) {
+    setTask(event.target.value);
+  }
+
+  function deleteTask(id) {
+    setAllTasks(allTasks.filter((task) => task.id !== id))    
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="container">
+      <h1>Todo</h1>
+      <input
+        value={task} 
+        onChange={saveTask} 
+        type="text" 
+        placeholder="Add a new task..."
+        onKeyDown={(event) => {
+          if(event.key === 'Enter')
+            addTask();
+          else if(event.key === 'Escape')
+            setTask("");  
+        }}
+      />
+      <button onClick={addTask}>Add</button>
+      <hr />
+      {console.log(allTasks)}
+      <Task tasks={allTasks} deleteTask={deleteTask} />
+    </div>
   )
 }
 
