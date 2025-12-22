@@ -20,15 +20,15 @@ Aplikacja umożliwia dodawanie, usuwanie i zarządzanie listą zadań. Posiada i
 ## 🖼️ Screenshoty
 
 ### Interfejs główny
-![Główny interfejs aplikacji](./screenshots/main-interface.png)
+![Główny interfejs aplikacji](./frontend/screenshots/main-interface.png)
 *Widok główny aplikacji z polem do dodawania zadań*
 
 ### Lista zadań
-![Lista zadań](./screenshots/task-list.png)
+![Lista zadań](./frontend/screenshots/task-list.png)
 *Przykładowa lista zadań z przyciskami Delete*
 
 ### Responsywność
-![Widok mobilny](./screenshots/mobile-view.png)
+![Widok mobilny](./frontend/screenshots/mobile-view.png)
 *Aplikacja na urządzeniach mobilnych*
 
 ## 🛠️ Technologie
@@ -111,7 +111,6 @@ npm run dev
 4. Użyj przycisku "Clear All" aby wyczyścić całą listę
 5. Zaznacz checkbox, aby oznaczyć zadanie (funkcjonalność wizualna)
 
-![Tutorial](./screenshots/how-to-use.png)
 
 ## 🎯 Przykład użycia
 
